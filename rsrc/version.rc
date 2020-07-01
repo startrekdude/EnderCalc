@@ -1,0 +1,28 @@
+1 VERSIONINFO
+FILEVERSION    1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEFLAGSMASK  0x0003f
+FILEFLAGS      0
+FILEOS         0x40004
+FILETYPE       1
+FILESUBTYPE    0
+{
+  BLOCK "StringFileInfo"
+  {
+    BLOCK "04090000"
+	{
+	  VALUE "CompanyName"      , "Sam Haskins"
+	  VALUE "FileDescription"  , "A simple scientific calculator"
+	  VALUE "FileVersion"      , "1.0"
+	  VALUE "InternalName"     , "EnderCalc"
+	  VALUE "LegalCopyright"   , "(C) Sam Haskins 2020"
+	  VALUE "OriginalFilename" , "EnderCalc.exe"
+	  VALUE "ProductName"      , "EnderCalc"
+	  VALUE "ProductVersion"   , "1.0"
+	}
+  }
+  BLOCK "VarFileInfo"
+  {
+    VALUE "Translation", 0x0409, 0x0000
+  }
+}
