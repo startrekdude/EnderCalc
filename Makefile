@@ -12,11 +12,13 @@ ifeq ($(OS),Windows_NT)
 	BINARY_NAME=EnderCalc.exe
 	DIR_GUARD=@if not exist build mkdir build
 	PLATFORM_RMDIR=rd /q /s
+	PLATFORM_RM=del
 else
 	LDLIBS=-ledit
 	BINARY_NAME=endercalc
 	DIR_GUARD=@mkdir -p build
 	PLATFORM_RMDIR=rm -rf
+	PLATFORM_RM=rm -f
 endif
 
 .DEFAULT_GOAL := $(BINARY_NAME)
@@ -44,10 +46,10 @@ ifeq ($(OS),Windows_NT)
 	ALL_RESOURCES=build/version.o build/icon.o
 endif
 
-ALL_LIBRARIES=lib/libbf/libbf.a lib/libminini/libminini.a
-
 ifeq ($(OS),Windows_NT)
-	ALL_LIBRARIES+=lib/libedit/libedit.a
+	ALL_LIBRARIES=lib\libbf\libbf.a lib\libminini\libminini.a lib\libedit\libedit.a
+else
+	ALL_LIBRARIES=lib/libbf/libbf.a lib/libminini/libminini.a
 endif
 
 build/vector.o : src/vector.c $(I_VECTOR_H)
@@ -91,3 +93,4 @@ $(BINARY_NAME) : $(ALL_OBJECTS) $(ALL_RESOURCES) $(ALL_LIBRARIES)
 .PHONY : clean
 clean :
 	$(PLATFORM_RMDIR) build
+	$(PLATFORM_RM) $(ALL_LIBRARIES)
