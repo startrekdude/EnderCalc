@@ -57,10 +57,38 @@ static char** null_completion(const char *text, int start, int end) {
 	return rl_completion_matches(text, null_matches);
 }
 
+static int simple_eval_expr(char *s) {
+	vector_t expr;
+	int err = parse_expr(s, &expr);
+	if (err == PARSE_SUCCESS) {
+		bf_t *result;
+		err = eval_expr(expr, &result);
+		if (err == EVAL_SUCCESS) {
+			engine_num_print(result, 0, 1);
+		} else {
+			printf("Evaluation error: ");
+			eval_print_error(err);
+			putchar('\n');
+		}
+		expr_delete(expr);
+	} else {
+		printf("Parse error: ");
+		parse_print_error(err);
+		putchar('\n');
+	}
+	return err = 0 ? 0 : -1;
+}
+
 int main(int argc, char **argv) {
-	puts("EnderCalc v1.0");
-	
 	engine_init();
+	
+	if (argc > 1) {
+		int rc = simple_eval_expr(argv[1]);
+		engine_cleanup();
+		return rc;
+	}
+	
+	puts("EnderCalc v1.0");
 	
 	rl_attempted_completion_function = null_completion;
 	
