@@ -6,7 +6,7 @@ CFLAGS=-pie -std=c99 -flto -fno-asynchronous-unwind-tables -O2 -I include $(DEBU
 LDFLAGS=-pie -Wl,--gc-sections -Wl,-s -std=c99 -flto -O2
 
 ifeq ($(OS),Windows_NT)
-	CCFLAGS+=-D HELP_USE_WIN32
+	CFLAGS+=-D HELP_USE_WIN32
 	LDFLAGS+=-Wl,-emainCRTStartup -Wl,--dynamicbase
 	LDLIBS=-lshlwapi
 	BINARY_NAME=EnderCalc.exe
