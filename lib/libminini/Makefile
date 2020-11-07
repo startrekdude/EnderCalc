@@ -8,7 +8,13 @@ CFLAGS=-pie -std=c99 -ffunction-sections -fdata-sections -fno-asynchronous-unwin
 
 ALL_OBJECTS=build/minIni.o
 
-DIR_GUARD=@if not exist build mkdir build
+ifeq ($(OS),Windows_NT)
+	DIR_GUARD=@if not exist build mkdir build
+	PLATFORM_RMDIR=rd /q /s
+else
+	DIR_GUARD=@mkdir -p build
+	PLATFORM_RMDIR=rm -rf
+endif
 
 build/minIni.o : minIni.c minIni.h minGlue.h
 
@@ -22,4 +28,4 @@ libminini.a : $(ALL_OBJECTS)
 
 .PHONY : clean
 clean :
-	rd /q /s build
+	$(PLATFORM_RMDIR) build

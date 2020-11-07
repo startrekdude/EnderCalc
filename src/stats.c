@@ -1,9 +1,16 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "calc.h"
 #include "engine.h"
 #include "libbf.h"
+
+#ifdef _WIN32
 #include "readline.h"
+#else
+#include <editline/readline.h>
+#endif
+
 #include "stats.h"
 #include "vector.h"
 
@@ -69,7 +76,7 @@ static unsigned int read_dataset(vector_t *ds) {
 			bf_t *repeat = (bf_t*) vector_get_last(*ds);
 			long int count = strtol(line, &line, 10) - 1;
 			if (count <= 0 || count > 65535) {
-				printf("Invalid value for repeat: %d\n", count + 1);
+				printf("Invalid value for repeat: %ld\n", count + 1);
 				free_dataset(*ds);
 				free(original_line);
 				return 1;

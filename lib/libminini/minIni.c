@@ -76,6 +76,10 @@
   #endif
 #endif
 
+#ifdef __LINUX__
+#include <strings.h>
+#endif
+
 #if !defined INI_LINETERM
   #define INI_LINETERM    __T("\n")
 #endif
