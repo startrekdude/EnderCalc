@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='windows-1252'?>
 <Wix xmlns='http://schemas.microsoft.com/wix/2006/wi'>
     <Product Name='EnderCalc' Manufacturer='Sam Haskins'
-        Id='8D071419-C18B-4ADF-8C43-C132A2D06130' 
+        Id='F661D9B1-6C8F-498B-A2CD-6713CCF56A83' 
         UpgradeCode='0C835813-54EE-490F-B06A-F24D4635ADBC'
-        Language='1033' Codepage='1252' Version='1.0'>
+        Language='1033' Codepage='1252' Version='1.1'>
 		
-		<Package Id='*' Description="Sam Haskins's EnderCalc 1.0 Installer"
+		<Package Id='*' Description="Sam Haskins's EnderCalc 1.1 Installer"
 			Manufacturer='Sam Haskins' InstallerVersion='200' Languages='1033'
 			Compressed='yes' SummaryCodepage='1252' InstallScope="perMachine" />
 		<MajorUpgrade
@@ -26,7 +26,7 @@
 			<ComponentGroupRef Id="EnderCalcProgram" />
 						
 			<Component Id="StartShortcut" Directory="ProgramMenuFolder"
-				Guid="C3ABA3C4-FBE9-4351-9D86-B08669A62FA7">
+				Guid="DE809CE9-455F-44C1-85E1-8BE87AC57E4E">
 				<Shortcut Id="EnderCalcStartShortcut"
 					Name="EnderCalc"
 					Target="[#fil958C7D7274215E5CBCC267B6395C9228]"
@@ -49,7 +49,7 @@
 		
 		<Feature Id="EnderCalcDesktopShortcut" Title="Desktop Shortcut" Level="1" AllowAdvertise="no">
 			<Component Id="DesktopShortcut" Directory="DesktopFolder"
-				Guid="5858D8FE-EDAA-4964-845B-53D38C8F0331">
+				Guid="C99307C2-57A7-4284-84BA-33056FCEBF6D">
 				<Shortcut Id="EnderCalcDesktopShortcut"
 					Name="EnderCalc"
 					Target="[#fil958C7D7274215E5CBCC267B6395C9228]"

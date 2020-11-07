@@ -1,4 +1,4 @@
-EnderCalc used the following open-source libraries:
+EnderCalc uses the following open-source libraries:
 - libbf 20200119 by Fabrice Bellard, licensed under the MIT License
 - WinEditLine 2.206 by Paolo Tosco, licensed under the BSD 3-clause License
 - minIni 1.2b by Thiadmer Riemersma, licensed under the Apache License w/ Linking Exception
