@@ -12,7 +12,13 @@ EnderCalc is a fast, powerful, arbitrary precision, text-driven scientific calcu
 
 Please see the releases section for Windows x64 binaries.
 
-I am not able to build for other platforms at this point but would be happy to accept contributions from someone who can—please consult [build.cmd](build.cmd) for direction. You'll also need to provide another library implementing functions used from readline; I believe [libedit](https://thrysoee.dk/editline/) would serve this purpose for Unix-like operating systems.
+To build on Linux:
+
+```bash
+make
+```
+
+(has `libedit-dev` as a dependency, run `sudo apt install libedit-dev` first)
 
 ## Documentation
 
