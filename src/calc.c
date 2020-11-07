@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <sys/timeb.h>
 
 #include "calc.h"
@@ -8,7 +10,12 @@
 #include "expr.h"
 #include "mem.h"
 #include "parse.h"
+
+#ifdef _WIN32
 #include "readline.h"
+#else
+#include <editline/readline.h>
+#endif
 
 unsigned int g_debug = 0;
 unsigned int g_suppress_scientific_notation = 0;
