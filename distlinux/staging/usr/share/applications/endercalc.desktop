@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=EnderCalc
+Comment=Fast, powerful, arbitrary precision, text-driven scientific calculator.
+Icon=endercalc
+Exec=endercalc
+Terminal=true
+Type=Application
+Categories=Utility;Math;
+GenericName=EnderCalc

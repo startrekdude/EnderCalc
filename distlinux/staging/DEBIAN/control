@@ -1,0 +1,13 @@
+Package: endercalc
+Version: 1.1
+Homepage: https://github.com/startrekdude/EnderCalc
+Architecture: amd64
+Maintainer: Sam Haskins <cheesedude54321@gmail.com>
+Depends: libc6 (>= 2.27), libedit2 (>= 3.1)
+Section: math
+Priority: optional
+Description: Fast, powerful, arbitrary precision, text-driven scientific calculator.
+ EnderCalc is a fast, powerful, arbitrary precision, text-driven scientific
+ calculator written in (almost) pure C99. It supports basic arithmetic, 
+ logarithms and roots, trigonometric functions, hyperbolic functions, statistics
+ functions, and much more.

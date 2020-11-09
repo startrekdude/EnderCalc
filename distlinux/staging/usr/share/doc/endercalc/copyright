@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Sam Haskins
+Upstream-Contact: cheesedude54321@gmail.com
+Source: https://github.com/startrekdude/EnderCalc
+License: GPL-3
+Copyright: 2020 Sam Haskins
+
+Files: *
+Copyright: 2020 Sam Haskins
+License: GPL-3
