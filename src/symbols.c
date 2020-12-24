@@ -36,6 +36,7 @@ const sym_str_t g_sym_str[] = {
 	{ SYM_COS  , "cos"  , 3 },
 	{ SYM_TAN  , "tan"  , 3 },
 	{ SYM_ABS  , "abs"  , 3 },
+	{ SYM_2FAC , "!!"   , 2 },
 	{ SYM_POW  , "**"   , 2 },
 	{ SYM_LN   , "ln"   , 2 },
 	{ SYM_PI   , "pi"   , 2 },
@@ -50,7 +51,7 @@ const sym_str_t g_sym_str[] = {
 	{ SYM_PERMU, "P"    , 1 },
 	{ SYM_COMBI, "C"    , 1 },
 };
-const unsigned int g_sym_str_len = 42;
+const unsigned int g_sym_str_len = 43;
 
 const char * const g_sym_names[] = {
 	"ANS",
@@ -95,6 +96,7 @@ const char * const g_sym_names[] = {
 	"RCL7",
 	"RCL8",
 	"RCL9",
+	"2FAC",
 };
 
 const char g_sym_const[] = {
@@ -140,6 +142,7 @@ const char g_sym_const[] = {
 	SYMC_NOT_CONSTANT, // RCL7
 	SYMC_NOT_CONSTANT, // RCL8
 	SYMC_NOT_CONSTANT, // RCL9
+	SYMC_NOT_CONSTANT, // 2FAC
 };
 
 const char g_op_args[] = {
@@ -185,6 +188,7 @@ const char g_op_args[] = {
 	SYMA_NOT_OPERATOR , // RCL7
 	SYMA_NOT_OPERATOR , // RCL8
 	SYMA_NOT_OPERATOR , // RCL9
+	SYMO_UNARY_POSTFIX, // 2FAC
 };
 
 const unsigned int g_op_precedence[] = {
@@ -230,6 +234,7 @@ const unsigned int g_op_precedence[] = {
 	SYMP_NOT_OPERATOR, // RCL7
 	SYMP_NOT_OPERATOR, // RCL8
 	SYMP_NOT_OPERATOR, // RCL9
+	1                , // 2FAC
 };
 
 const char g_op_associativity[] = {
@@ -275,6 +280,7 @@ const char g_op_associativity[] = {
 	SYMA_NOT_OPERATOR, // RCL7
 	SYMA_NOT_OPERATOR, // RCL8
 	SYMA_NOT_OPERATOR, // RCL9
+	SYMA_LEFT        , // 2FAC
 };
 
 const arg_collect_t g_op_arg_collect[] = {
@@ -327,4 +333,5 @@ op_func_t * const g_op_funcs[] = {
 	0         , // RCL7
 	0         , // RCL8
 	0         , // RCL9
+	calc_2fac , // 2FAC
 };

@@ -79,5 +79,6 @@ int calc_atanh(bf_t **args, bf_t **result);
 int calc_permu(bf_t **args, bf_t **result);
 int calc_combi(bf_t **args, bf_t **result);
 int calc_abs(bf_t **args, bf_t **result);
+int calc_2fac(bf_t **args, bf_t **result);
 
 #endif

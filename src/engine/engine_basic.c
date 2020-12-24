@@ -89,6 +89,53 @@ int calc_fac(bf_t **args, bf_t **result) {
 	}
 }
 
+// r = a0!!
+int calc_2fac(bf_t **args, bf_t **result) {
+	// negative inputs must be handled specially
+	unsigned char negate = 0;
+	if ((*args)->sign == 1) {
+		negate = 1;
+		bf_neg(*args);
+	}
+	
+	// should be whole number
+	bf_set(*result, g_engine_const[ENGINE_CONST_ONE]);
+	int err = bf_rint(*args, BF_RNDN);
+	if (err & BF_ST_INEXACT) return EVAL_MATH_ERROR;
+	
+	// anti hang check
+	if (bf_cmp_le(g_engine_const[ENGINE_CONST_MAX_FAC], *args))
+		return EVAL_MATH_ERROR;
+	
+	// the double factorial is not defined for even negative numbers
+	if (negate) {
+		bf_t *rem = engine_num_alloc();
+		bf_rem(rem, *args, g_engine_const[ENGINE_CONST_TWO], g_engine_prec, BF_RNDN, BF_DIVREM_EUCLIDIAN);
+		if (bf_cmp_eq(rem, g_engine_const[ENGINE_CONST_ZERO])) {
+			engine_num_free(rem);
+			return EVAL_MATH_ERROR;
+		}
+		engine_num_free(rem);
+	}
+	
+	if (negate)
+		bf_sub(*args, *args, g_engine_const[ENGINE_CONST_TWO], g_engine_prec, BF_RNDN);
+	
+	unsigned char iterCount = 0;
+	while (!bf_cmp_le(*args, g_engine_const[ENGINE_CONST_ZERO])) {
+		bf_mul(*result, *result, *args, g_engine_prec, BF_RNDN);
+		bf_sub(*args, *args, g_engine_const[ENGINE_CONST_TWO], g_engine_prec, BF_RNDN);
+		iterCount ^= 1;
+	}
+	
+	if (negate)
+		bf_div(*result, g_engine_const[ENGINE_CONST_ONE], *result, g_engine_prec, BF_RNDN);
+	if (negate && iterCount)
+		bf_neg(*result);
+	
+	return EVAL_SUCCESS;
+}
+
 // r = sqrt(a0)
 int calc_sqrt(bf_t **args, bf_t **result) {
 	return map_err(bf_sqrt(*result, *args, g_engine_prec, BF_RNDN));

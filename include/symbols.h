@@ -63,7 +63,10 @@
 #define SYM_RCL8 40
 #define SYM_RCL9 41
 
-#define SYM_MAX SYM_RCL9
+// Symbols added after v1.0
+#define SYM_2FAC 42 // double factorial
+
+#define SYM_MAX SYM_2FAC
 #define SYM_RCL_MIN SYM_RCL1
 #define SYM_RCL_MAX SYM_RCL9
 
