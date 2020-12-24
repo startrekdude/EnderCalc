@@ -10,7 +10,7 @@ EnderCalc is a fast, powerful, arbitrary precision, text-driven scientific calcu
 
 ## Download
 
-Please see the releases section for Windows x64 binaries.
+Please see the releases section for x64 Windows binaries or DEB packages.
 
 To build on Linux:
 
