@@ -135,7 +135,7 @@ static void do_prec(char *s) {
 }
 
 static void do_about(char *s) {
-	puts("EnderCalc v1.1 by Sam Haskins");
+	puts("EnderCalc v1.2 by Sam Haskins");
 	puts("(licensed under the GNU General Public License, version 3)");
 	puts("=============================");
 	puts("Open-source libaries:");
