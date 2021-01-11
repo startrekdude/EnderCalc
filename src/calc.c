@@ -116,6 +116,9 @@ int main(int argc, char **argv) {
 	
 	while (1) {
 		char *line = readline("? ");
+		if (line == NULL) {
+			break;
+		}
 		if (line[0] == '\0') {
 			free(line);
 			break;
