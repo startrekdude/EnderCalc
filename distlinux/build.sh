@@ -11,5 +11,5 @@ find staging -type f -exec chmod 0644 {} \;
 chmod +x staging/opt/endercalc/endercalc
 ln -s /opt/endercalc/endercalc staging/usr/bin/endercalc
 
-dpkg-deb --root-owner-group --build staging endercalc_1.2_amd64.deb
-lintian endercalc_1.2_amd64.deb --info --suppress-tags dir-or-file-in-opt
+dpkg-deb --root-owner-group --build staging endercalc_1.3_amd64.deb
+lintian endercalc_1.3_amd64.deb --info --suppress-tags dir-or-file-in-opt
