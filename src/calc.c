@@ -95,7 +95,7 @@ int main(int argc, char **argv) {
 		return rc;
 	}
 	
-	puts("EnderCalc v1.2");
+	puts("EnderCalc v1.3");
 	
 	rl_attempted_completion_function = null_completion;
 	

@@ -1,6 +1,6 @@
 @echo off
 
-set WIX=C:\Users\Sam Haskins\Desktop\Archives\dist\wix
+set WIX=C:\Users\Ender\Desktop\Archives\dist\wix
 
 echo Building EnderCalc installer..
 
